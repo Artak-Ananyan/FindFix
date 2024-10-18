@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'Questions.dart';
+import '../Pages/Questions.dart';
 
 class Category extends StatefulWidget {
   Category(String this.categoryName, this.imagePath, this.height, this.width, this.textSize, {super.key});
@@ -13,13 +13,16 @@ class Category extends StatefulWidget {
   final double width;
   final double textSize;
 
+
   @override
   State<Category> createState() => _CategoryState();
 }
 
 class _CategoryState extends State<Category> {
+
   @override
   Widget build(BuildContext context) {
+
     final textStyle = GoogleFonts.robotoMono(
       fontSize: widget.textSize,
       fontWeight: FontWeight.bold,
@@ -30,7 +33,7 @@ class _CategoryState extends State<Category> {
         borderRadius: BorderRadius.circular(20),
       ),
       onTap: (){
-    Navigator.push(context,MaterialPageRoute(builder: (context) => Questions()),);
+    Navigator.push(context,MaterialPageRoute(builder: (context) => Questions(widget.categoryName, 0)),);
       },
       child: Container(
         margin: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 5),

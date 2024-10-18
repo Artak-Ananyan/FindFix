@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class QuestionButton extends StatefulWidget {
   final String text;
   final Color backgroundColor;
@@ -58,8 +60,13 @@ class _QuestionButtonState extends State<QuestionButton>
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double fontSize = screenWidth / 31; // Scale font size based on screen width
+
+
     final textStyle = GoogleFonts.robotoMono(
-      fontSize: widget.textSize,
+      fontSize:  fontSize,
       fontWeight: FontWeight.bold,
       textStyle: Theme.of(context).textTheme.displayLarge,
       color: widget.textColor,
@@ -112,9 +119,12 @@ class _QuestionButtonState extends State<QuestionButton>
           ),
           child: Row(
             children: [
+              SizedBox(width: 20,),
               Icon(widget.selected ? Icons.check_circle_rounded:Icons.circle_outlined, color: Colors.green),
-              Center(
-                child:  Text( widget.text, style: textStyle, textAlign: TextAlign.center,),
+              Expanded(
+                child: Center(
+                  child:  Text(widget.text, style: textStyle, textAlign: TextAlign.center),
+                ),
               ),
             ],
           ),
