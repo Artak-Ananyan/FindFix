@@ -36,6 +36,16 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.0
+  firebase_auth: ^5.2.0
+  firebase_core: ^3.4.0
+  firebase_database: ^11.1.1
+  firebase_core_platform_interface: ^5.3.0
+  cloud_firestore: ^5.4.0
+  lottie: ^3.1.3
+  flutter_multi_formatter: ^2.0.0
+
+
+
 
 
 dev_dependencies:
@@ -47,7 +57,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -74,6 +84,18 @@ flutter:
      - assets/shower.png
      - assets/armcheer.png
      - assets/spider.png
+     - assets/briliant.json
+     - assets/location.json
+     - assets/back.png
+     - assets/back2.png
+     - assets/back3.png
+     - assets/back4.png
+     - assets/back5.png
+     - assets/back6.png
+     - assets/pink_rotate_phone.json
+     - assets/sms.json
+     - assets/loader.json
+     - assets/home_scan_success.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

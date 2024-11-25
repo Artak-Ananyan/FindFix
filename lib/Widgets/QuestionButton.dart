@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -61,16 +60,14 @@ class _QuestionButtonState extends State<QuestionButton>
   @override
   Widget build(BuildContext context) {
 
-    double screenWidth = MediaQuery.of(context).size.width;
-    double fontSize = screenWidth / 31; // Scale font size based on screen width
 
-
-    final textStyle = GoogleFonts.robotoMono(
-      fontSize:  fontSize,
-      fontWeight: FontWeight.bold,
+    final textStyle = GoogleFonts.lato(
+      fontSize:  widget.textSize,
+      fontWeight: FontWeight.w700,
       textStyle: Theme.of(context).textTheme.displayLarge,
       color: widget.textColor,
     );
+
     return GestureDetector(
       onTap: () {
         widget.onTap?.call();
@@ -84,47 +81,40 @@ class _QuestionButtonState extends State<QuestionButton>
         child: Container(
           decoration: BoxDecoration(
             color: widget.backgroundColor,
-            border: widget.index == 0 ?
-            Border(
-              top: BorderSide(color: Colors.green, width: 1), // Only top left
-              right: BorderSide(color: Colors.green, width: 1), // Only top right
-              left: BorderSide(color: Colors.green, width: 1), // Only top right
-            ): widget.index == widget.maxIndex ?
-            Border(
-              top: BorderSide(color: Colors.green, width: 1), // Only top left
-              bottom: BorderSide(color: Colors.green, width: 1), // Only top left
-              right: BorderSide(color: Colors.green, width: 1), // Only top right
-              left: BorderSide(color: Colors.green, width: 1), // Only top right
-            ) :
-            Border(
-              top: BorderSide(color: Colors.green, width: 1),
-              right: BorderSide(color: Colors.green, width: 1), // Only top right
-              left: BorderSide(color: Colors.green, width: 1), // Only top right
-            ),
 
 
-            borderRadius: widget.index == 0 ?
-            BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10)
-            ) : widget.index == widget.maxIndex ?
-            BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10)
-            ) :
-            BorderRadius.only(
-                topLeft: Radius.circular(0),
-                topRight: Radius.circular(0)
+            borderRadius:
+            const BorderRadius.only(
+                topLeft: Radius.circular(6),
+                topRight: Radius.circular(6),
+                bottomLeft:  Radius.circular(6),
+                bottomRight:  Radius.circular(6),
             ),
           ),
           child: Row(
             children: [
-              SizedBox(width: 20,),
-              Icon(widget.selected ? Icons.check_circle_rounded:Icons.circle_outlined, color: Colors.green),
+              const SizedBox(width: 20,),
+              Stack(
+                children: [
+                  Container(child: const Icon(
+                    Icons.circle,
+
+                    shadows: [
+                      Shadow(
+                        color: Colors.black87,
+                        blurRadius: 1.0,
+                      ),
+                    ],
+
+                    color:  Colors.white, size: 50,)),
+                  Container(
+                      margin: const EdgeInsets.only(left: 5, right: 5, top: 5),
+                      child: Icon(Icons.circle, color: widget.selected ? const Color(0xFFFF0083): Colors.white, size: 40,)),
+                ],
+              ),
+              const SizedBox(width: 20,),
               Expanded(
-                child: Center(
-                  child:  Text(widget.text, style: textStyle, textAlign: TextAlign.center),
-                ),
+                child: Text(widget.text, style: textStyle),
               ),
             ],
           ),

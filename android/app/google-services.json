@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "120600345237",
+    "project_id": "fixfinder-d83f2",
+    "storage_bucket": "fixfinder-d83f2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120600345237:android:be00479fb1b2221d99b99c",
+        "android_client_info": {
+          "package_name": "com.fix.finder.fixfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120600345237-kpfbq3658ch24v1e84ts13s6j3i2ll61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fix.finder.fixfinder",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "120600345237-misbj73a8tpamhi29kg3gvkcpvvbvd0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fix.finder.fixfinder",
+            "certificate_hash": "3876ba5d5fa241abbd374d2af0c281a473d797a6"
+          }
+        },
+        {
+          "client_id": "120600345237-h8jpu2ldugguorkblqd1d7pi1r53lc3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtnSOF0uGNmPLUlhPNej0Gs3A6zm9456s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120600345237-h8jpu2ldugguorkblqd1d7pi1r53lc3r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "120600345237-b18djn7plc1gv0cutbb7kmr83fs2davf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fix.finder.fixfinder"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

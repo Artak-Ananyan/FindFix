@@ -8,7 +8,7 @@ class CoreButton extends StatefulWidget {
   final VoidCallback? onTap;
   final double textSize;
 
-  const CoreButton({required this.text, this.onTap, required this.backgroundColor, required this.lineColor, required this.textColor, required this.textSize});
+  const CoreButton({super.key, required this.text, this.onTap, required this.backgroundColor, required this.lineColor, required this.textColor, required this.textSize});
 
   @override
   _CoreButtonState createState() => _CoreButtonState();
