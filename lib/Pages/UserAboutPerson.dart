@@ -1,4 +1,5 @@
 import 'package:fixfinder/Pages/PhoneAuthScreen.dart';
+import 'package:fixfinder/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
@@ -67,7 +68,7 @@ class _UserAboutPersonState extends State<UserAboutPerson> {
                           hintText: 'LAST NAME',
                           prefixIcon: Icons.person_outline,
                           context: context,
-                          validator: nameValidator,
+                          validator: nameValidatorL,
                         ),
                       ),
                     ],
@@ -241,6 +242,15 @@ class _UserAboutPersonState extends State<UserAboutPerson> {
     if (value == null || value.isEmpty) {
       return 'This field cannot be empty';
     }
+    MyApp.infoData.firstName = value;
+    return null;
+  }
+
+  String? nameValidatorL(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field cannot be empty';
+    }
+    MyApp.infoData.lastName = value;
     return null;
   }
 
@@ -250,6 +260,8 @@ class _UserAboutPersonState extends State<UserAboutPerson> {
     if (value == null || value.isEmpty || !regex.hasMatch(value)) {
       return 'Enter a valid email address';
     }
+    MyApp.infoData.email = value;
+
     return null;
   }
 
@@ -260,6 +272,8 @@ class _UserAboutPersonState extends State<UserAboutPerson> {
     var ph =  value.replaceAll(RegExp(r'\D'), '');
     phoneNumber = ph;
     showedPhoneNumber = value;
+    MyApp.infoData.phone = value;
+
     return null;
   }
 }

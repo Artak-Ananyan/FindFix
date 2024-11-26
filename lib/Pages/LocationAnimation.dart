@@ -1,4 +1,5 @@
 import 'package:fixfinder/Pages/UserAboutAddress.dart';
+import 'package:fixfinder/Pages/UserAboutPerson.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -44,7 +45,7 @@ class _LocationAnimationState extends State<LocationAnimation> with TickerProvid
                   ..duration = composition.duration
                   ..forward().whenComplete(() => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const UserAboutAddress()),
+                    MaterialPageRoute(builder: (context) => const UserAboutPerson()),
                   ));
               },
             ),

@@ -1,4 +1,5 @@
 import 'package:fixfinder/Pages/UserAboutPerson.dart';
+import 'package:fixfinder/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -75,22 +76,21 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
                           ),
                           const SizedBox(height: 30),
                           buildTextField(
-                            margin: MediaQuery.of(context).size.width / 3.5,
+                            margin: MediaQuery.of(context).size.width / 6,
                             hintText: 'STREET',
                             prefixIcon: Icons.home_outlined,
                             context: context,
                             validator: streetValidator,
                           ),
                           buildTextField(
-                            margin: MediaQuery.of(context).size.width / 3.5,
+                            margin: MediaQuery.of(context).size.width / 6,
                             hintText: 'CITY',
                             prefixIcon: Icons.location_city_outlined,
                             context: context,
-                            validator:
-                                basicValidator, // Assuming simple non-empty validation
+                            validator: basicValidator, // Assuming simple non-empty validation
                           ),
                           buildTextField(
-                            margin: MediaQuery.of(context).size.width / 3.5,
+                            margin: MediaQuery.of(context).size.width / 6,
                             hintText: 'ZIP CODE',
                             prefixIcon: Icons.signpost_outlined,
                             context: context,
@@ -100,10 +100,10 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
                             margin: EdgeInsets.only(
                               top: 40,
                               left: kIsWeb
-                                  ? MediaQuery.of(context).size.width / 4
+                                  ? MediaQuery.of(context).size.width / 9
                                   : MediaQuery.of(context).size.width / 40,
                               right: kIsWeb
-                                  ? MediaQuery.of(context).size.width / 4
+                                  ? MediaQuery.of(context).size.width / 9
                                   : MediaQuery.of(context).size.width / 40,
                             ),
                             child: Row(
@@ -112,7 +112,7 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
                                 SizedBox(
                                   height: 58,
                                   width: kIsWeb
-                                      ? MediaQuery.of(context).size.width / 4.5
+                                      ? MediaQuery.of(context).size.width / 2.7
                                       : MediaQuery.of(context).size.width / 2 -
                                           30,
                                   child: CoreButton(
@@ -134,17 +134,24 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
                                     height: 58,
                                     width: kIsWeb
                                         ? MediaQuery.of(context).size.width /
-                                            4.5
-                                        : MediaQuery.of(context).size.width /
-                                                2 -
-                                            30,
+                                            2.7
+                                        : MediaQuery.of(context).size.width / 2 - 30,
                                     child: CoreButton(
                                         textSize: 18,
                                         text: "Next",
                                         onTap: () {
-                                          setState(() {
-                                            isActivate = true;
-                                          });
+                                          if (_formKey.currentState!.validate()) {
+                                            // If the form is valid, you can perform further actions here
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              const SnackBar(content: Text('Processing Data')),
+                                            );
+
+                                            setState(() {
+
+                                              isActivate = true;
+                                            });
+                                          }
+
                                         },
                                         lineColor: const Color(0xFFFF0083),
                                         backgroundColor: const Color(0xFFFF0083),
@@ -166,7 +173,7 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
                   child: Lottie.asset(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                    "assets/location.json",
+                    "assets/briliant.json",
                     controller: _controlle2,
                     onLoaded: (composition) {
                       _controlle2
@@ -193,7 +200,7 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
   }) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: kIsWeb ? margin : 40.0, vertical: 8.0),
+          horizontal: kIsWeb ? margin : 20.0, vertical: 8.0),
       child: TextFormField(
         decoration: InputDecoration(
           focusedBorder: const OutlineInputBorder(
@@ -214,29 +221,13 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
     );
   }
 
-  String? emailValidator(String? value) {
-    String pattern = r'\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b';
-    RegExp regex = RegExp(pattern);
-    if (value == null || value.isEmpty || !regex.hasMatch(value)) {
-      return 'Enter a valid email address';
-    }
-    return null;
-  }
 
-  String? phoneValidator(String? value) {
-    // Validates if the phone number fits the formatted style
-    if (value == null ||
-        value.isEmpty ||
-        !RegExp(r'^\(\d{3}\)-\d{3}-\d{4}$').hasMatch(value)) {
-      return 'Enter a valid US phone number (e.g., (818)-855-5055)';
-    }
-    return null;
-  }
 
   String? streetValidator(String? value) {
     if (value == null || value.isEmpty) {
       return 'Street cannot be empty';
     }
+    MyApp.infoData.street = value;
     return null;
   }
 
@@ -244,6 +235,8 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
     if (value == null || value.isEmpty) {
       return 'This field cannot be empty';
     }
+
+    MyApp.infoData.city = value;
     return null;
   }
 
@@ -253,6 +246,7 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
     if (value == null || value.isEmpty || !regex.hasMatch(value)) {
       return 'Enter a valid ZIP code (e.g., 12345 or 12345-6789)';
     }
+    MyApp.infoData.zipcode = value;
     return null;
   }
 }

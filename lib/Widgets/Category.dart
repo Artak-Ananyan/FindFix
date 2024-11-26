@@ -1,4 +1,5 @@
 
+import 'package:fixfinder/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,6 +50,7 @@ class _CategoryState extends State<Category> {
         borderRadius: BorderRadius.circular(20),
       ),
       onTap: (){
+        MyApp.infoData.category = widget.categoryName;
         Navigator.push(context,MaterialPageRoute(builder: (context) => Questions(widget.id)),);
       },
       child: Container(

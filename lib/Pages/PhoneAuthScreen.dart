@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 import '../Widgets/CoreButton.dart';
+import '../main.dart';
 import 'Otp.dart';
 
 class Register extends StatefulWidget {
@@ -29,6 +31,28 @@ class _RegisterState extends State<Register> {
   String _verificationId = '';
   bool _isCodeSent = false;
   bool _isLoading = false;
+
+
+  void addInfo() async {
+    try {
+      FirebaseFirestore db = FirebaseFirestore.instance;
+      DocumentReference docRef = db.collection(MyApp.infoData.category).doc();
+      await docRef.set({
+        'firstName': MyApp.infoData.firstName,
+        'lastName': MyApp.infoData.lastName,
+        'phone': MyApp.infoData.phone,
+        'email': MyApp.infoData.email,
+        'city': MyApp.infoData.city,
+        'street': MyApp.infoData.street,
+        'zipcode': MyApp.infoData.zipcode,
+        'about': MyApp.infoData.about,
+        'questions': MyApp.infoData.questions,
+      });
+      print('Document added successfully!');
+    } catch (e) {
+      print('Error adding document: $e');
+    }
+  }
 
 
 
@@ -59,6 +83,7 @@ class _RegisterState extends State<Register> {
           });
         },
         verificationFailed: (FirebaseAuthException e) {
+          addInfo();
           debugPrint("Verification failed:$number ${e.message}");
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Verification failed:$number ${e.message}")),
@@ -114,14 +139,14 @@ class _RegisterState extends State<Register> {
     );
 
     final textStyle3 = GoogleFonts.lato(
-      fontSize: 34,
+      fontSize: MediaQuery.of(context).size.width/16,
       fontWeight: FontWeight.w700,
       textStyle: Theme.of(context).textTheme.displayLarge,
       color: const Color(0xFF6A6969),
     );
 
     final style2 = GoogleFonts.merriweather(
-      fontSize: 30,
+      fontSize: MediaQuery.of(context).size.width/20,
       fontWeight: FontWeight.w700,
       textStyle: Theme.of(context).textTheme.displayLarge,
       color: const Color(0xFF4A4A4A),
@@ -131,79 +156,78 @@ class _RegisterState extends State<Register> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
-          child: Center(
-            child: SizedBox(
-              width: kIsWeb ? MediaQuery.of(context).size.width/2.5 : MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                 kIsWeb ?const SizedBox() : Align(
-                    alignment: Alignment.topLeft,
-                    child: GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: const Icon(
-                        Icons.arrow_back,
-                        size: 32,
-                        color: Colors.black54,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 32),
+            child: Center(
+              child: SizedBox(
+                width: kIsWeb ? MediaQuery.of(context).size.width/1.4 : MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                   kIsWeb ?const SizedBox() : Align(
+                      alignment: Alignment.topLeft,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          size: 32,
+                          color: Colors.black54,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 18),
-                  SizedBox(
-                    width: 200,
-                    height: 200,
-                    child: Lottie.asset("assets/pink_rotate_phone.json",
-                        fit: BoxFit.fitHeight),
-                  ),
-                  const SizedBox(height: 24),
-                  Text('Verify Phone Number', style: style2),
-                  const SizedBox(height: 40),
-                  Text(
-                    "Add your phone number. We'll send you a verification code so we know you're real.",
-                    style: textStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 28),
-                  Container(
-                    padding: const EdgeInsets.all(28),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
+                    const SizedBox(height: 18),
+                    SizedBox(
+                      width: 200,
+                      height: 200,
+                      child: Lottie.asset("assets/pink_rotate_phone.json",
+                          fit: BoxFit.fitHeight),
                     ),
-                    child: Column(
-                      children: [
-                        Text(
-                          showedPhoneNumber,
-                          style: textStyle3,
-                        ),
-                        const SizedBox(height: 60),
-                        SizedBox(
-                          width: double.infinity,
-                          child: SizedBox(
-                            height: 58,
-                            child: CoreButton(
-                              textSize: 18,
-                              text: "Send OTP",
-                              onTap: _sendOtp,
-                              lineColor: const Color(0xFFFF0083),
-                              backgroundColor: const Color(0xFFFF0083),
-                              textColor: Colors.white,
-                            ),
+                    const SizedBox(height: 24),
+                    Text('Verify Phone Number', style: style2),
+                    const SizedBox(height: 40),
+                    Text(
+                      "Add your phone number. We'll send you a verification code so we know you're real.",
+                      style: textStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 28),
+                    Container(
+                      padding: const EdgeInsets.all(28),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            showedPhoneNumber,
+                            style: textStyle3,
                           ),
-                        )
-                      ],
+                          const SizedBox(height: 60),
+                          SizedBox(
+                            width: double.infinity,
+                            child: SizedBox(
+                              height: 58,
+                              child: CoreButton(
+                                textSize: 18,
+                                text: "Send OTP",
+                                onTap: _sendOtp,
+                                lineColor: const Color(0xFFFF0083),
+                                backgroundColor: const Color(0xFFFF0083),
+                                textColor: Colors.white,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ),
       )
-      //     : Center(
-      //   child: Lottie.asset("assets/briliant.json", fit: BoxFit.fitHeight),
-      // ),
     ) : Container(
       color: Colors.white,
       child: Center(child: Lottie.asset("assets/briliant.json",

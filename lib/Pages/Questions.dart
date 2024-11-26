@@ -1,5 +1,8 @@
 import 'dart:core';
+import 'package:fixfinder/Network/InfoData.dart';
+import 'package:fixfinder/Pages/UserAboutAddress.dart';
 import 'package:fixfinder/Widgets/CoreButton.dart';
+import 'package:fixfinder/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -158,11 +161,9 @@ class _QuestionsState extends State<Questions> {
                                     lineColor: const Color(0xFFFF0083),
                                     textColor: const Color(0xFF4A4A4A),
                                     index: index,
-                                    textSize: MediaQuery.of(context).size.width > 150*8 ?
-                                                      MediaQuery.of(context).size.width/60 :
-                                    (MediaQuery.of(context).size.width > 150*5 && MediaQuery.of(context).size.width < 150*8) ?
-                                      MediaQuery.of(context).size.width/50
-                                      : MediaQuery.of(context).size.width/30,
+                                    textSize: MediaQuery.of(context).size.width > 150*8 ? MediaQuery.of(context).size.width/70 :
+                                    (MediaQuery.of(context).size.width > 150*5 && MediaQuery.of(context).size.width < 150*8) ? MediaQuery.of(context).size.width/50
+                                      : MediaQuery.of(context).size.width/40,
                                     maxIndex: questionList!.length - 1,
                                     selected: selectedIndex == index,
                                     onTap: () {
@@ -238,6 +239,7 @@ class _QuestionsState extends State<Questions> {
                                       text: "Next",
                                       onTap: () {
                                         if (selectedIndex != 1000) {
+                                          MyApp.infoData.questions.add(selectedQuestion!.questionsList[selectedIndex].values.toString());
                                           Navigator.push(
                                               context,
                                               MaterialPageRoute(
@@ -245,10 +247,11 @@ class _QuestionsState extends State<Questions> {
                                               )
                                           );
                                         }else if(importantNotes.text.isNotEmpty){
+                                          MyApp.infoData.about = importantNotes.text;
                                           Navigator.push(
                                               context,
                                               MaterialPageRoute(
-                                                builder: (context) => const LocationAnimation(),
+                                                builder: (context) => const UserAboutAddress(),
                                               )
                                           );
                                         }
@@ -273,6 +276,7 @@ class _QuestionsState extends State<Questions> {
                                     text: "Previous",
                                     onTap: () async {
                                       closeKeyboard(context);
+                                      MyApp.infoData.questions.removeAt(MyApp.infoData.questions.length);
                                       await Future.delayed(const Duration(milliseconds: 100)); // Optional: ensure keyboard close animation completes
                                       Navigator.pop(context);
                                     },

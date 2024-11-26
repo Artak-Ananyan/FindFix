@@ -1,10 +1,10 @@
 import 'package:fixfinder/Pages/Home.dart';
-import 'package:fixfinder/Pages/PhoneAuthScreen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'HomeWeb.dart';
+import 'Network/InfoData.dart';
 
 void main() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +24,13 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static String answerQuestion = "";
+  static InfoData infoData = InfoData();
 
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      title: "FixFinder",
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body:  kIsWeb ? HomeWeb():  Home() ,
