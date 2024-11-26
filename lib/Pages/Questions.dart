@@ -163,7 +163,7 @@ class _QuestionsState extends State<Questions> {
                                     index: index,
                                     textSize: MediaQuery.of(context).size.width > 150*8 ? MediaQuery.of(context).size.width/70 :
                                     (MediaQuery.of(context).size.width > 150*5 && MediaQuery.of(context).size.width < 150*8) ? MediaQuery.of(context).size.width/50
-                                      : MediaQuery.of(context).size.width/40,
+                                      : MediaQuery.of(context).size.width/28,
                                     maxIndex: questionList!.length - 1,
                                     selected: selectedIndex == index,
                                     onTap: () {

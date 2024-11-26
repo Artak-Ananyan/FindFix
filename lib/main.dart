@@ -11,10 +11,13 @@ void main() async {
 
     kIsWeb ? await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: "AIzaSyAtnSOF0uGNmPLUlhPNej0Gs3A6zm9456s", // Only if necessary
-      appId: "1:120600345237:web:786fe5d124af60be99b99c",
-      messagingSenderId: "G-CK435X03C3",
-      projectId: "fixfinder-d83f2",
+        apiKey: "AIzaSyCYTzSA_GFMcH3ruhP2FPFPiOeq4RchhVE",
+        authDomain: "fixfinder-d83f2.firebaseapp.com",
+        projectId: "fixfinder-d83f2",
+        storageBucket: "fixfinder-d83f2.firebasestorage.app",
+        messagingSenderId: "120600345237",
+        appId: "1:120600345237:web:786fe5d124af60be99b99c",
+        measurementId: "G-CK435X03C3"
     ),
   ): await Firebase.initializeApp();
   runApp(const MyApp());

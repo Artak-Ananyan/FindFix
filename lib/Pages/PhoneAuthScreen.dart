@@ -26,6 +26,8 @@ class _RegisterState extends State<Register> {
   _RegisterState(this._phoneNumber, this._showedPhoneNumber);
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+
   String phoneNumber = "+1";
   String showedPhoneNumber = "";
   String _verificationId = '';
@@ -33,26 +35,6 @@ class _RegisterState extends State<Register> {
   bool _isLoading = false;
 
 
-  void addInfo() async {
-    try {
-      FirebaseFirestore db = FirebaseFirestore.instance;
-      DocumentReference docRef = db.collection(MyApp.infoData.category).doc();
-      await docRef.set({
-        'firstName': MyApp.infoData.firstName,
-        'lastName': MyApp.infoData.lastName,
-        'phone': MyApp.infoData.phone,
-        'email': MyApp.infoData.email,
-        'city': MyApp.infoData.city,
-        'street': MyApp.infoData.street,
-        'zipcode': MyApp.infoData.zipcode,
-        'about': MyApp.infoData.about,
-        'questions': MyApp.infoData.questions,
-      });
-      print('Document added successfully!');
-    } catch (e) {
-      print('Error adding document: $e');
-    }
-  }
 
 
 
@@ -83,7 +65,6 @@ class _RegisterState extends State<Register> {
           });
         },
         verificationFailed: (FirebaseAuthException e) {
-          addInfo();
           debugPrint("Verification failed:$number ${e.message}");
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Verification failed:$number ${e.message}")),

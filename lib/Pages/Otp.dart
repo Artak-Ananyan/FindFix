@@ -10,6 +10,7 @@ import 'package:lottie/lottie.dart';
 
 import '../Widgets/CoreButton.dart';
 import '../main.dart';
+import 'Home.dart';
 
 class Otp extends StatefulWidget {
   final String phoneNumber;
@@ -34,7 +35,7 @@ class _OtpState extends State<Otp> {
   bool _isLoading = false;
   int _resendCooldown = 30;
   Timer? _timer;
-  bool verifySuccess = true;
+  bool verifySuccess = false;
 
   _OtpState({required this.verificationId});
 
@@ -410,7 +411,14 @@ class _OtpState extends State<Otp> {
                                       child: CoreButton(
                                         textSize: 18,
                                         text: "Finish",
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const MyApp()),
+                                                (Route<dynamic> route) => false,
+                                          );;
+
+                                        },
                                         lineColor: const Color(0xFFFF0083),
                                         backgroundColor:
                                             const Color(0xFFFF0083),
