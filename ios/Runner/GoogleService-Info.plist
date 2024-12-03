@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>120600345237-b18djn7plc1gv0cutbb7kmr83fs2davf.apps.googleusercontent.com</string>
+	<string>120600345237-ibc8dnmlkrp70mk63tb241hveq59klt5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.120600345237-b18djn7plc1gv0cutbb7kmr83fs2davf</string>
+	<string>com.googleusercontent.apps.120600345237-ibc8dnmlkrp70mk63tb241hveq59klt5</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>120600345237-kpfbq3658ch24v1e84ts13s6j3i2ll61.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.fix.finder.fixfinder</string>
+	<string>com.fix.finder.fixfinder.pro</string>
 	<key>PROJECT_ID</key>
 	<string>fixfinder-d83f2</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:120600345237:ios:8b761eec1f815a7a99b99c</string>
+	<string>1:120600345237:ios:5a718f7295620eb199b99c</string>
 </dict>
 </plist>

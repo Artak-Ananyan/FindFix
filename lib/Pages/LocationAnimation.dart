@@ -45,7 +45,7 @@ class _LocationAnimationState extends State<LocationAnimation> with TickerProvid
                   ..duration = composition.duration
                   ..forward().whenComplete(() => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const UserAboutPerson()),
+                    MaterialPageRoute(builder: (context) => const UserAboutAddress()),
                   ));
               },
             ),

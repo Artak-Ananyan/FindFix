@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../Pages/Questions.dart';
 
 class Category extends StatefulWidget {
-  const Category(this.id, this.categoryName, this.imagePath, this.height, this.width, this.textSize, {super.key});
+  const Category(this.id, this.categoryName, this.imagePath, this.height, this.width, this.textSize, {super.key, this.price});
 
   final String categoryName;
   final String imagePath;
@@ -14,6 +14,7 @@ class Category extends StatefulWidget {
   final double width;
   final double textSize;
   final int id;
+  final int? price;
 
 
   @override
@@ -42,7 +43,7 @@ class _CategoryState extends State<Category> {
     final textStyle3 = GoogleFonts.lato(
       fontSize: widget.textSize/1.7,
       fontWeight: FontWeight.bold,
-      color: Colors.black26,
+      color: Colors.black87,
       textStyle: Theme.of(context).textTheme.displayLarge,
     );
     return InkWell(
@@ -96,7 +97,7 @@ class _CategoryState extends State<Category> {
                   child: Text("START", style: textStyle2),
                 ),
                 ),
-              Text("From 500\$", style: textStyle3, textAlign: TextAlign.center,),
+              widget.price!=null ? Text("From \$${widget.price}", style: textStyle3, textAlign: TextAlign.center,) : Text(""),
 
             ],
           ),

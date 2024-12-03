@@ -70,7 +70,7 @@ class _UserAboutAddressState extends State<UserAboutAddress> with TickerProvider
                       child: Column(
                         children: [
                           Text(
-                            'Please tell us a little about your project.',
+                            'Address Information',
                             style: textStyleQuestion,
                             textAlign: TextAlign.center,
                           ),

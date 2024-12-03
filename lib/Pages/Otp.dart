@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
+import '../HomeWeb.dart';
 import '../Widgets/CoreButton.dart';
 import '../main.dart';
 import 'Home.dart';
@@ -414,10 +415,9 @@ class _OtpState extends State<Otp> {
                                         onTap: () {
                                           Navigator.pushAndRemoveUntil(
                                             context,
-                                            MaterialPageRoute(builder: (context) => const MyApp()),
+                                            MaterialPageRoute(builder: (context) =>  MyApp()),
                                                 (Route<dynamic> route) => false,
                                           );;
-
                                         },
                                         lineColor: const Color(0xFFFF0083),
                                         backgroundColor:
@@ -467,7 +467,13 @@ class _OtpState extends State<Otp> {
                                       child: CoreButton(
                                         textSize: 18,
                                         text: "Finish",
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(builder: (context) =>  kIsWeb ? HomeWeb():  Home() ),
+                                                (Route<dynamic> route) => false,
+                                          );
+                                        },
                                         lineColor: const Color(0xFFFF0083),
                                         backgroundColor:
                                             const Color(0xFFFF0083),

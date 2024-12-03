@@ -1,11 +1,11 @@
 {
-    "name": "fixfinder",
-    "short_name": "fixfinder",
+    "name": "FixFinder",
+    "short_name": "FixFinder",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FF0083",
+    "theme_color": "#FF0083",
+    "description": "FixFinder™ Official Site — Discover trusted reviews and skilled professionals for repairs, remodeling, and more. Quickly get quotes and connect with top experts near you. Fast, Free & Reliable.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

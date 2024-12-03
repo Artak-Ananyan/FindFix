@@ -45,7 +45,7 @@ class _UserAboutPersonState extends State<UserAboutPerson> {
             child: Column(
               children: [
                 Text(
-                  'Please tell us a little about your project.',
+                  'Personal Information',
                   style: textStyleQuestion,
                   textAlign: TextAlign.center,
                 ),

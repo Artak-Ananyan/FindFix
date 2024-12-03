@@ -1,4 +1,5 @@
 import 'package:fixfinder/Pages/Home.dart';
+import 'package:fixfinder/Pages/SplashScreen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       title: "FixFinder",
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body:  kIsWeb ? HomeWeb():  Home() ,
+        body:  kIsWeb ? HomeWeb():  SplashScreen() ,
 
       ),
     );

@@ -371,10 +371,10 @@ class _HomeWebState extends State<HomeWeb> {
       fontSize:  30,
       fontWeight: FontWeight.normal,
       textStyle: Theme.of(context).textTheme.displayLarge,
-      color: Colors.black54,
+      color: Color(0XFFFF0083),
     );
     return Container(
-      color: Colors.white,
+      color: Color(0xFFF7F7F7),
       alignment: Alignment.center,
       padding: const EdgeInsets.only(left: 20, top: 60, right: 20),
       child: SingleChildScrollView(
@@ -382,23 +382,23 @@ class _HomeWebState extends State<HomeWeb> {
           children: [
 
             Visibility(
-              visible: (MediaQuery.of(context).size.width > 150*8),
+              visible: (MediaQuery.of(context).size.width > 150*5),
               child: Stack(
                 children: [
                   Container(
-                      margin: const EdgeInsets.only(top: 40),
+                      margin: const EdgeInsets.only(top: 1),
                       child: Image.asset("assets/back4.png")),
 
                   Container(
-                      margin: const EdgeInsets.only(top: 40),
+                      margin: const EdgeInsets.only(top: 1),
                       child: Image.asset("assets/back2.png")),
                   Container(
-                      margin: const EdgeInsets.only(top: 140),
+                      margin: const EdgeInsets.only(top: 50),
                       child: Image.asset("assets/back3.png")),
 
 
                   Container(
-                      margin: const EdgeInsets.only(top: 240),
+                      margin: const EdgeInsets.only(top: 360),
                       child: Image.asset("assets/back.png")),
 
                 ],
@@ -413,7 +413,7 @@ class _HomeWebState extends State<HomeWeb> {
                 Container(
                   margin: const EdgeInsets.only(top: 40, bottom: 60),
                   child: Text(
-                    'Please tell us a little about your project.',
+                    'FixFinder: Where Home Projects Find Their Perfect Pro',
                     style: textStyleQuestion,
                     textAlign: TextAlign.center,
                   ),
@@ -421,23 +421,24 @@ class _HomeWebState extends State<HomeWeb> {
                 const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Category(413, "Gutter Services", "assets/gutter.png",  231, 150, 18),
-                      Category(37, "Appliance Repair", "assets/loundry.png",  231, 150, 18),
+                      Category(1, "Roof Repair", "assets/home.png", 231, 150, 18, price: 594,),
+                      Category(50, "Fence Repair", "assets/fence.png",  231, 150, 18, price: 380,),
+                      Category(106, "Decks & Porches", "assets/decks.png",  231, 150, 18, price: 1890,),
                       Category(380, "Home Painting", "assets/painting.png",  231, 150, 18),
-                      Category(349, "Electrician", "assets/drel.png",  231, 150, 18),
-                      Category(330, "Home Cleaning", "assets/armcheer.png",  231, 150, 18),
-                      Category(155, "AC Service", "assets/ac.png",  231, 150, 18),
-                    ]
+                      Category(413, "Gutter Services", "assets/gutter.png",  231, 150, 18, price: 575,),
+                      Category(117, "Plumbing", "assets/krant.png", 231, 150, 18, price: 210,),
+                      ]
                 ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Category(117, "Plumbing", "assets/krant.png", 231, 150, 18),
-                    Category(106, "Decks & Porches", "assets/decks.png",  231, 150, 18),
-                     Category(1, "Roof Repair", "assets/home.png", 231, 150, 18),
-                      Category(50, "Fence Repair", "assets/fence.png",  231, 150, 18),
+                    Category(37, "Appliance Repair", "assets/loundry.png",  231, 150, 18, price: 264,),
+                    Category(155, "AC Service", "assets/ac.png",  231, 150, 18),
+                    Category(330, "Home Cleaning", "assets/armcheer.png",  231, 150, 18, price: 85,),
                     Category(91, "Cleaning", "assets/shower.png",  231, 150, 18),
-                    Category(39, "Pest Control", "assets/spider.png",  231, 150, 18),
+                    Category(39, "Pest Control", "assets/spider.png",  231, 150, 18, price: 186,),
+                    Category(349, "Electrician", "assets/drel.png",  231, 150, 18),
+
                   ],
                 ),
               ],

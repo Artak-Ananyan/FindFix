@@ -1,5 +1,5 @@
 name: fixfinder
-description: "A new Flutter project."
+description: "FixFinder™ Official Site — Discover trusted reviews and skilled professionals for repairs, remodeling, and more. Quickly get quotes and connect with top experts near you. Fast, Free & Reliable."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -89,6 +89,8 @@ flutter:
      - assets/briliant.json
      - assets/location.json
      - assets/back.png
+     - assets/icon.png
+     - assets/back_spl.png
      - assets/back2.png
      - assets/back3.png
      - assets/back4.png
@@ -98,6 +100,7 @@ flutter:
      - assets/sms.json
      - assets/loader.json
      - assets/home_scan_success.json
+     - assets/questions.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
